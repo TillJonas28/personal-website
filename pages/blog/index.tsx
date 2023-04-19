@@ -46,7 +46,7 @@ export default function BlogPage({data}) {
                 </section>
                 <section className="my-6" id="recommendation-article">
                     <h1 className="text-2xl font-semibold mb-4">Kategorien</h1>
-                    <div className="grid grid-col-2 gap-x-4 sm:grid-flow-col">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 ">
                         {categoriesRendered}
                     </div>
                 </section>

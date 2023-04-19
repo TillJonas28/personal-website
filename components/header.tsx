@@ -26,10 +26,10 @@ export default function Header(props: HeaderProps) {
                 </nav>
                 {navMenu ?
                     <ul ref={parent}  className="tracking-widest py-8 fixed flex flex-col text-3xl justify-center gap-6 items-center bg-zinc-200 text-slate-900 top-0 left-0 right-0 bottom-0 h-screen">
-                        {ARRAY.map( (item) => {
+                        {ARRAY.map( (item, index) => {
                             return (
                             <li>
-                                <Link className="hover:border-b-2 hover:border-red-900" href={`/${item}`}>
+                                <Link key={index}  className="hover:border-b-2 hover:border-red-900" href={`/${item}`}>
                                     {item}
                                 </Link>
                             </li>

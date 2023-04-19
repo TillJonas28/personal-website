@@ -34,7 +34,7 @@ export default function Home() {
   const articles = [1,2,3,4]
 
   const previewArticles = articles.map( (item) => {
-    return <Card theme={theme} />
+    return <Card key={item} theme={theme} />
   })
 
   const { ref: myRef, inView: myElementIsVisible } = useInView()
