@@ -27,7 +27,7 @@ export default function BlogPage({data}) {
 
     const categoriesRendered = data.map( (category) => {
         return (
-            <Card title={category.name} desc={category.description} theme={theme} />
+            <Card key={category.id} title={category.name} desc={category.description} theme={theme} />
         )
     })
     return (
