@@ -14,7 +14,7 @@ export async function getServerSideProps() {
     }
   }
 
-export default function BlogPage({data}) {
+export default function BlogPage({data}:any) {
     const [theme, setTheme] = useState(true)
 
     const handleTheme = () => {
@@ -25,7 +25,7 @@ export default function BlogPage({data}) {
 
     console.log(data[0].name)
 
-    const categoriesRendered = data.map( (category) => {
+    const categoriesRendered = data.map( (category:any) => {
         return (
             <Card key={category.id} title={category.name} desc={category.description} theme={theme} />
         )

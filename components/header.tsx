@@ -28,7 +28,7 @@ export default function Header(props: HeaderProps) {
                     <ul ref={parent}  className="tracking-widest py-8 fixed flex flex-col text-3xl justify-center gap-6 items-center bg-zinc-200 text-slate-900 top-0 left-0 right-0 bottom-0 h-screen">
                         {ARRAY.map( (item, index) => {
                             return (
-                            <li>
+                            <li key={index}>
                                 <Link key={index}  className="hover:border-b-2 hover:border-red-900" href={`/${item}`}>
                                     {item}
                                 </Link>

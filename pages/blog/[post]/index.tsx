@@ -3,7 +3,6 @@ import Header from "@/components/header"
 export default function PostPage() {
     return (
         <>
-        <Header />
         <main className="mt-[8vh] px-[2vh] py-[2vh] min-h-screen bg-white">
                 <div className="border-b-2 border-dotted mb-8 py-5 border-zinc-300">
                     <span className="text-sm text-red-900">Kategorie 1</span>
