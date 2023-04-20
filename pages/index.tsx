@@ -23,7 +23,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react"
 
 export default function Home() {
   const [previewArticlesNr, setPreviewArticlesNr] = useState(2)
-  const [theme, setTheme] = useState(true)
+  const [theme, setTheme] = useState(false)
 
   const [parent, enableAnimations] = useAutoAnimate()
 
@@ -34,19 +34,15 @@ export default function Home() {
   const articles = [1,2,3,4]
 
   const previewArticles = articles.map( (item) => {
-    return <Card key={item} title={"Test"} desc={"Test Test Test"} theme={theme} />
+    return <Card id={item} key={item} title={"Test"} desc={"Test Test Test"} theme={theme} />
   })
 
-  const { ref: myRef, inView: myElementIsVisible } = useInView()
-
   return (
-    <main ref={parent} className={`${theme ? "bg-slate-900 text-white font-mono" : ""} mt-[8vh] pt-[4vh] min-h-[80vh]`}>
+    <main ref={parent} className={`${theme ? "bg-slate-900 text-white" : ""} mt-[8vh] pt-[4vh] min-h-[80vh]`}>
     <Header theme={theme} handleTheme={handleTheme}/>
     <section className="px-6 md:px-14 lg:px-24 min-h-[82vh]">
-      <h1 className="text-3xl md:text-4xl lg:text-5xl"> Ich bin Till. </h1>
-      <p className="mb-8">Das ist mein Internetauftritt! </p>
       <section className="pb-20 border-b-4 border-dashed border-white-600 mb-10" id="blog-preview">
-        <h1 className="text-xl font-semibold mb-4">Mein neuester Artikel</h1>
+        <h1 className="text-3xl mb-4">Mein neuester Artikel</h1>
         <div className="grid md:grid-cols-2 gap-7">
           {previewArticles.slice(0, previewArticlesNr)}
         </div>
@@ -59,28 +55,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section ref={myRef}  className="border-b-4 border-dashed border-white-600 mb-10" id="services-preview">
-        {myElementIsVisible ?
-          <>
-          <h1 className="text-4xl mb-8">
-            Meine Services
-          </h1>
-          <div className="grid md:grid-cols-2 gap-7">
-          <div className="relative mb-8 rounded-md">
-            <img className="rounded-md max-h-72 w-full object-cover" src="https://images.unsplash.com/photo-1594892185343-0241e1d47d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80">
-            </img>
-            <h1 className="rounded-b-md text-white text-2xl text-center absolute bottom-0 h-16 p-4 left-0 right-0 bg-green-600 z-30">Webseite Erstellung</h1>
-          </div>
-          <div className="relative mb-8 rounded-md">
-            <img className="rounded-md max-h-72 w-full object-cover" src="https://images.unsplash.com/photo-1594892185343-0241e1d47d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80">
-            </img>
-            <h1 className="rounded-b-md text-white text-2xl text-center absolute bottom-0 h-16 p-4 left-0 right-0 bg-green-600 z-30">Social Media</h1>
-          </div>
-          </div>     
-          </>
-          : ""
-        }
-        </section>
       <section id="about-preview">
         <h1 className="text-4xl mb-6">Ueber mich</h1>
         <div className="grid md:grid-cols-2">
@@ -91,7 +65,7 @@ export default function Home() {
               Ich bin Till. Aktuell leiste ich einen Internationalen Freiwilligendienst in Cambridge, UK. Dort arbeite ich mit Obdachlosen. Ab September 2023 studiere ich an der Bucerius Law School.
             </p>
             <p className="">
-              In meiner Freizeit entwickle ich Webseiten und schreibe fuer meinen Blog. Dort geht es um Philosphie, Kultur & ganz persoenliche Erfahrungen.
+              In meiner Freizeit bastele ich gerne mit Technik und schreibe fuer meinen Blog. Dort geht es um Philosphie, Kultur & ganz persoenliche Erfahrungen.
             </p>
           </div>
         </div>

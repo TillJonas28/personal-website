@@ -1,9 +1,27 @@
 import Header from "@/components/header"
+import { useRouter } from "next/router"
 
-export default function PostPage() {
-    return (
+/*
+export async function getServerSideProps() {
+    const router = useRouter()
+    const { postid } = router.query
+
+    const res = await fetch(`https://meyerjark.de/wp-json/wp/v2/posts/${postid}`)
+    const post = await res.json()
+    
+    return {
+      props: {
+        post
+      }
+    }
+  }
+*/
+
+export default function PostPage({post=""}:any) {
+    return (    
         <>
         <main className="mt-[8vh] px-[2vh] py-[2vh] min-h-screen bg-white">
+            {post}
                 <div className="border-b-2 border-dotted mb-8 py-5 border-zinc-300">
                     <span className="text-sm text-red-900">Kategorie 1</span>
                     <h1 className="text-3xl font-bold mb-4">
