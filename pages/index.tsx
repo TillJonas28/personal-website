@@ -1,23 +1,7 @@
-
-/*
-export async function getServerSideProps() {
-  const res = await fetch("https://meyerjark.de/wp-json/wp/v2/post/ist-der-mensch-gut-oder-boese/")
-  const data = await res.json()
-
-  return {
-    props: {
-      data
-    }
-  }
-}
-*/
 import Card from "../components/Card"
-import CodingCard from "@/components/codingCard"
 import { useState } from "react"
 import Header from "@/components/header"
 import Link from "next/link"
-import Gig from "@/components/Gig"
-import Image from "next/image"
 import { useInView } from "react-intersection-observer"
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 
@@ -31,10 +15,16 @@ export default function Home() {
     setTheme(old => !old )
   }
 
-  const articles = [1,2,3,4]
+  const mockDataArticles = [
+    {id:0, title: "Hello World", desc:"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet."},
+    {id:1, title: "Hello World", desc:"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet."},
+    {id:2, title: "Hello World", desc:"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet."},
+    {id:3, title: "Hello World", desc:"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet."},
+  
+  ]
 
-  const previewArticles = articles.map( (item) => {
-    return <Card id={item} key={item} title={"Test"} desc={"Test Test Test"} theme={theme} />
+  const previewArticles = mockDataArticles.map( (article) => {
+    return <Card id={article.id} key={article.id} title={article.title} desc={article.desc} theme={theme} />
   })
 
   return (
@@ -42,7 +32,7 @@ export default function Home() {
     <Header theme={theme} handleTheme={handleTheme}/>
     <section className="px-6 md:px-14 lg:px-24 min-h-[82vh]">
       <section className="pb-20 border-b-4 border-dashed border-white-600 mb-10" id="blog-preview">
-        <h1 className="text-3xl mb-4">Mein neuester Artikel</h1>
+        <h1 className="text-3xl mb-4">Meine neuesten Artikel</h1>
         <div className="grid md:grid-cols-2 gap-7">
           {previewArticles.slice(0, previewArticlesNr)}
         </div>
@@ -58,7 +48,7 @@ export default function Home() {
       <section id="about-preview">
         <h1 className="text-4xl mb-6">Ueber mich</h1>
         <div className="grid md:grid-cols-2">
-          <img className="hover:rotate-2 transition-all drop-shadow-lg rounded-md w-4/5" src="https://www.politico.eu/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2015/11/1GettyImages-51351020.jpg">
+          <img className="hover:rotate-2 transition-all drop-shadow-lg rounded-md w-4/5" src="http://meyerjark.de/wp-content/uploads/2022/07/DSC2711-Bearbeitet-1024x683.jpg">
           </img>
           <div className="hover:bg-slate-50 hover:drop-shadow-md hover:text-lg transition-all bg-white flex flex-col gap-4 py-4 w-4/5">
             <p className="">
